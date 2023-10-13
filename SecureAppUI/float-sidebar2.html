@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page</title>
+
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="ui/bootstrap/css/bootstrap.min.css">
+
+    <!-- Custom CSS for indentation -->
+    <style>
+        .nav:not(:first-child) {
+            padding-left: 15px;
+        }
+
+        .nav-link:hover {
+            background-color: darkgray;
+        }
+
+        .bg-lightgray {
+            background-color: lightgray;
+        }
+
+        .min-vh-100 {
+            min-height: calc(100vh - 58px) !important;
+        }
+
+        /* Custom CSS to position submenu over the main area on desktops */
+        .submenu-container {
+            position: relative;
+            top: -40px;
+            left: 100%;
+            width: 100%;
+            background-color: white;
+            z-index: 1000;
+            box-shadow: 3px 0 1rem rgba(0, 0, 0, 0.15) !important;
+        }
+
+        /* Custom CSS to control submenu visibility on mobile screens */
+        @media (max-width: 767px) {
+            .submenu-container {
+                position: static;
+                top: auto;
+                left: auto;
+                width: auto;
+                box-shadow: none !important;
+                display: none; /* Hide submenu on mobile screens by default */
+            }
+
+            .nav-link:hover + .submenu-container,
+            .submenu-container:hover {
+                display: block; /* Show submenu on hover on mobile screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="bg-primary text-white text-center py-2">
+        <h3>Your Header</h3>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block bg-lightgray sidebar min-vh-100">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#submenu2">Item 2</a>
+                            <!-- Create a container for the submenu -->
+                            <div class="submenu-container">
+                                <ul id="submenu2" class="nav flex-column ml-3 collapse" data-bs-parent="#submenu2">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#subitem2">Subitem 2</a>
+                                        <ul id="subitem2" class="nav flex-column ml-3 collapse" data-bs-parent="#submenu2">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Sub-subitem 1</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Sub-subitem 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#subitem3">Subitem 3</a>
+                                        <ul id="subitem3" class="nav flex-column ml-3 collapse" data-bs-parent="#submenu2">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Sub-subitem 1</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Sub-subitem 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 shadow">
+                            <h3>This is page title</h3>
+                        </div>
+                    </div>
+                    <form class="row g-3">
+                        <!-- Add your form content here -->
+                    </form>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap JS (optional, if you need JavaScript features) -->
+    <script src="ui/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
